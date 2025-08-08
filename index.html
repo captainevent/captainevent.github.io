@@ -12,15 +12,46 @@
       background: #0a0a0a;
     }
     
+    .card-container {
+      position: relative;
+      width: 100%;
+      max-width: 28rem;
+      height: auto;
+      cursor: pointer;
+    }
+    
+    .card-face {
+      width: 100%;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    
+    /* .card-back {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      pointer-events: none;
+    }
+    
+    .card-container.flipped .card-front {
+      opacity: 0;
+      pointer-events: none;
+    }
+    
+    .card-container.flipped .card-back {
+      opacity: 1;
+      pointer-events: auto;
+    } */
+        
     .elegant-glow {
       box-shadow: 0 0 40px rgba(255, 255, 255, 0.03), 0 0 80px rgba(212, 175, 55, 0.02);
     }
-    
+        
     .subtle-border {
       border: 1px solid rgba(255, 255, 255, 0.08);
       position: relative;
     }
-    
+        
     .subtle-border::before {
       content: '';
       position: absolute;
@@ -31,17 +62,20 @@
       background: linear-gradient(90deg, transparent 0%, #d4af37 50%, transparent 100%);
       opacity: 0.6;
     }
-    
+        
     .premium-gradient {
       background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
+	  /* background: 
+		linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.7) 100%),
+		url('leather-soft.jpg') no-repeat center center / cover; */
     }
-    
+        
     .gold-accent {
       background: linear-gradient(90deg, transparent 0%, #d4af37 20%, #d4af37 80%, transparent 100%);
       height: 1px;
       opacity: 0.8;
     }
-    
+        
     .gold-dot {
       width: 4px;
       height: 4px;
@@ -49,7 +83,7 @@
       border-radius: 50%;
       opacity: 0.7;
     }
-    
+        
     .gold-corner {
       position: absolute;
       width: 20px;
@@ -57,43 +91,38 @@
       border: 1px solid #d4af37;
       opacity: 0.3;
     }
-    
+        
     .gold-corner.top-left {
       top: 24px;
       left: 24px;
       border-right: none;
       border-bottom: none;
     }
-    
+        
     .gold-corner.bottom-right {
       bottom: 24px;
       right: 24px;
       border-left: none;
       border-top: none;
     }
-    
+        
     .hover-lift {
-      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
-    
-    .hover-lift:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 40px rgba(255, 255, 255, 0.06), 0 4px 20px rgba(212, 175, 55, 0.1);
-    }
-    
+        
     .fade-in {
       animation: fadeIn 1.2s ease-out;
     }
-    
+        
     .slide-up {
       animation: slideUp 0.8s ease-out 0.3s both;
     }
-    
+        
     .gold-shimmer {
       position: relative;
       overflow: hidden;
     }
-    
+        
     .gold-shimmer::after {
       content: '';
       position: absolute;
@@ -104,24 +133,24 @@
       background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
       animation: shimmer 3s infinite;
     }
-    
+        
     .minimal-icon {
       width: 16px;
       height: 16px;
       opacity: 0.6;
       transition: all 0.3s ease;
     }
-    
+        
     .contact-item:hover .minimal-icon {
       opacity: 1;
       color: #d4af37;
     }
-    
+        
     .gold-divider {
       height: 1px;
       background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.3) 50%, transparent 100%);
     }
-    
+        
     .geometric-accent {
       position: absolute;
       width: 40px;
@@ -132,12 +161,40 @@
       right: -20px;
       opacity: 0.3;
     }
-    
+
+    .flip-indicator {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+
+    .flip-indicator:hover {
+      background: rgba(212, 175, 55, 0.2);
+      transform: scale(1.1);
+    }
+
+    .flip-icon {
+      width: 14px;
+      height: 14px;
+      color: #d4af37;
+      opacity: 0.8;
+    }
+        
     @keyframes fadeIn {
       0% { opacity: 0; }
       100% { opacity: 1; }
     }
-    
+        
     @keyframes slideUp {
       0% {
         opacity: 0;
@@ -148,32 +205,31 @@
         transform: translateY(0);
       }
     }
-    
+        
     @keyframes shimmer {
       0% { left: -100%; }
       100% { left: 100%; }
     }
-    
+        
     .letter-spacing-wide {
       letter-spacing: 0.2em;
     }
-    
+        
     .letter-spacing-wider {
       letter-spacing: 0.3em;
     }
-    
+        
     .gold-social:hover {
       color: #d4af37;
       transform: translateY(-1px);
     }
 
-    /* Adaptations responsive pour mobile */
     @media (min-width: 640px) {
       .minimal-icon {
         width: 18px;
         height: 18px;
       }
-      
+            
       .geometric-accent {
         width: 50px;
         height: 50px;
@@ -189,82 +245,195 @@
       }
     }
 
-    /* Optimisations spécifiques pour mobile */
     @media (max-width: 640px) {
       .elegant-glow {
         box-shadow: 0 0 20px rgba(255, 255, 255, 0.02), 0 0 40px rgba(212, 175, 55, 0.01);
       }
-      
-      .hover-lift:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 4px 20px rgba(255, 255, 255, 0.04), 0 2px 10px rgba(212, 175, 55, 0.05);
-      }
+	  .card-container {
+	    max-width: 24rem;
+	  }
     }
+
+	@media (max-width: 400px) {
+	  .card-container {
+	    max-width: 18rem; /* ~288px */
+	  }
+	}
   </style>
 </head>
-<body class="min-h-screen flex items-center justify-center p-3 sm:p-4">
-  <div class="premium-gradient subtle-border rounded-2xl p-6 sm:p-8 md:p-12 w-full max-w-sm sm:max-w-md md:max-w-lg elegant-glow hover-lift fade-in relative overflow-hidden">
-    <div class="geometric-accent"></div>
-    
-    <div class="text-center mb-8 sm:mb-10 md:mb-12 relative">
-      <div class="flex items-center justify-center mb-4">
-        <img src="logo.png" alt="Logo Captain Event" class="h-16 sm:h-20 md:h-24 mb-8 sm:mb-10 md:mb-12 mx-auto" />
-      </div>
-      <!-- <div class="gold-accent w-24 sm:w-28 md:w-32 mx-auto mb-2"></div> -->
-    </div>
-    
-    <div class="text-center mb-8 sm:mb-10 md:mb-12 slide-up relative">
-      <div class="gold-divider w-12 sm:w-14 md:w-16 mx-auto mb-3 sm:mb-4"></div>
-      <p class="text-gray-300 font-light text-base sm:text-lg mb-2" style="margin: 0;">Agence d'Événementiel Haut de Gamme</p>
-      <p class="text-gray-500 text-xs sm:text-sm font-light" style="margin: 0;">Créativité • Excellence • Sur-Mesure</p>
-      <div class="gold-divider w-12 sm:w-14 md:w-16 mx-auto mt-3 sm:mt-4"></div>
-    </div>
-    
-    <div class="space-y-4 sm:space-y-5 md:space-y-6 mb-8 sm:mb-10 md:mb-12 slide-up">
-      <div class="contact-item flex items-center justify-between py-3 sm:py-4 border-b border-gray-800/50 hover:border-gray-700/50 transition-all duration-300 relative">
-        <div class="flex items-center space-x-3 sm:space-x-4">
-          <svg class="minimal-icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-          </svg>
-          <span class="text-gray-400 text-xs sm:text-sm font-light">Mobile</span>
-        </div>
-        <a href="tel:+33744956764" class="text-white font-light hover:text-gray-300 transition-colors text-xs sm:text-sm">
-          +33 7 44 95 67 64
-        </a>
-        <div class="absolute left-0 bottom-0 w-0 h-px bg-gradient-to-r from-transparent to-yellow-600 transition-all duration-300 group-hover:w-full"></div>
-      </div>
+<body class="min-h-screen flex items-center justify-center p-3 sm:p-4 slide-up">
+  <div class="card-container" id="businessCard">
+    <!-- RECTO -->
+    <div class="card-face card-front premium-gradient subtle-border rounded-2xl p-6 sm:p-8 md:p-12 elegant-glow hover-lift fade-in relative overflow-hidden">
+      <div class="geometric-accent"></div>
       
-      <div class="contact-item flex items-center justify-between py-3 sm:py-4 border-b border-gray-800/50 hover:border-gray-700/50 transition-all duration-300 relative">
-        <div class="flex items-center space-x-3 sm:space-x-4">
-          <svg class="minimal-icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-          </svg>
-          <span class="text-gray-400 text-xs sm:text-sm font-light">Email</span>
+      <div class="flip-indicator">
+        <svg class="flip-icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/>
+        </svg>
+      </div>
+          
+      <div class="text-center mb-8 sm:mb-10 md:mb-12 relative">
+        <div class="flex items-center justify-center mb-4">
+          <img src="logo.png" alt="Logo Captain Event" class="h-16 sm:h-20 md:h-24 mb-8 sm:mb-10 md:mb-12 mx-auto slide-up" />
         </div>
-        <a href="mailto:captainevent@proton.me" class="text-white font-light hover:text-gray-300 transition-colors text-xs sm:text-sm">
-          captainevent@proton.me
-        </a>
+      </div>
+          
+      <div class="text-center mb-8 sm:mb-10 md:mb-12 slide-up relative">
+        <div class="gold-divider w-12 sm:w-14 md:w-16 mx-auto mb-3 sm:mb-4"></div>
+        <p class="text-gray-300 font-light text-base sm:text-lg mb-2" style="margin: 0;">Agence d'Événementiel Haut de Gamme</p>
+        <p class="text-gray-500 text-xs sm:text-sm font-light" style="margin: 0;">Créativité • Excellence • Sur-Mesure</p>
+        <div class="gold-divider w-12 sm:w-14 md:w-16 mx-auto mt-3 sm:mt-4"></div>
+      </div>
+          
+      <div class="space-y-4 sm:space-y-5 md:space-y-6 mb-8 sm:mb-10 md:mb-12 slide-up">
+        <div class="contact-item flex items-center justify-between py-3 sm:py-4 border-b border-gray-800/50 hover:border-gray-700/50 transition-all duration-300 relative">
+          <div class="flex items-center space-x-3 sm:space-x-4">
+            <svg class="minimal-icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+            </svg>
+            <span class="text-gray-400 text-xs sm:text-sm font-light">Mobile</span>
+          </div>
+          <a href="tel:+33744956764" class="text-white font-light hover:text-gray-300 transition-colors text-xs sm:text-sm">
+            +33 7 44 95 67 64
+          </a>
+        </div>
+              
+        <div class="contact-item flex items-center justify-between py-3 sm:py-4 border-b border-gray-800/50 hover:border-gray-700/50 transition-all duration-300 relative">
+          <div class="flex items-center space-x-3 sm:space-x-4">
+            <svg class="minimal-icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+            <span class="text-gray-400 text-xs sm:text-sm font-light">Email</span>
+          </div>
+          <a href="mailto:captaineventpro@gmail.com" class="text-white font-light hover:text-gray-300 transition-colors text-xs sm:text-sm">
+            captaineventpro@gmail.com
+          </a>
+        </div>
+      </div>
+          
+      <div class="flex items-center justify-center mb-6 sm:mb-8 slide-up">
+        <div class="gold-dot"></div>
+        <div class="gold-accent w-8 sm:w-10 md:w-12 mx-3 sm:mx-4"></div>
+        <div class="w-2 h-2 border border-yellow-600 rotate-45 opacity-50"></div>
+        <div class="gold-accent w-8 sm:w-10 md:w-12 mx-3 sm:mx-4"></div>
+        <div class="gold-dot"></div>
+      </div>
+          
+      <div class="text-center slide-up">
+        <div class="flex items-center justify-center mb-3 sm:mb-4">
+          <div class="gold-accent w-6 sm:w-8"></div>
+          <div class="w-1 h-1 bg-yellow-600 rounded-full mx-2 sm:mx-3 opacity-70"></div>
+          <div class="gold-accent w-6 sm:w-8"></div>
+        </div>
+        <p class="text-gray-600 text-xs font-light letter-spacing-wide">
+          MMXXV
+        </p>
       </div>
     </div>
-    
-    <div class="flex items-center justify-center mb-6 sm:mb-8">
-      <div class="gold-dot"></div>
-      <div class="gold-accent w-8 sm:w-10 md:w-12 mx-3 sm:mx-4"></div>
-      <div class="w-2 h-2 border border-yellow-600 rotate-45 opacity-50"></div>
-      <div class="gold-accent w-8 sm:w-10 md:w-12 mx-3 sm:mx-4"></div>
-      <div class="gold-dot"></div>
-    </div>
-    
-    <div class="text-center slide-up">
-      <div class="flex items-center justify-center mb-3 sm:mb-4">
-        <div class="gold-accent w-6 sm:w-8"></div>
-        <div class="w-1 h-1 bg-yellow-600 rounded-full mx-2 sm:mx-3 opacity-70"></div>
-        <div class="gold-accent w-6 sm:w-8"></div>
+
+    <!-- VERSO -->
+    <div class="card-face card-back premium-gradient subtle-border rounded-2xl p-6 sm:p-8 md:p-12 elegant-glow hover-lift fade-in relative overflow-hidden hidden">
+      <div class="geometric-accent"></div>
+      
+      <div class="flip-indicator">
+        <svg class="flip-icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/>
+        </svg>
       </div>
-      <p class="text-gray-600 text-xs font-light letter-spacing-wide">
-        MMXXV
-      </p>
+
+      <div class="text-center mb-8 sm:mb-10 slide-up">
+        <div class="gold-divider w-16 sm:w-20 md:w-24 mx-auto mb-4 sm:mb-6"></div>
+        <h2 class="text-white text-lg sm:text-xl md:text-2xl font-light mb-4 sm:mb-6 letter-spacing-wide">NOS SERVICES</h2>
+        <div class="gold-divider w-16 sm:w-20 md:w-24 mx-auto"></div>
+      </div>
+
+      <div class="space-y-4 sm:space-y-5 mb-8 sm:mb-10 slide-up">
+		<div class="flex items-center space-x-3 sm:space-x-4 py-2 sm:py-3">
+		  <div class="gold-dot"></div>
+		  <span class="text-gray-300 text-sm sm:text-base font-light">Soirées d’Entreprise &amp; Galas</span>
+		</div>
+		<div class="flex items-center space-x-3 sm:space-x-4 py-2 sm:py-3">
+		  <div class="gold-dot"></div>
+		  <span class="text-gray-300 text-sm sm:text-base font-light">Lancements de Produits</span>
+		</div>
+		<div class="flex items-center space-x-3 sm:space-x-4 py-2 sm:py-3">
+		  <div class="gold-dot"></div>
+		  <span class="text-gray-300 text-sm sm:text-base font-light">Mariages Haut de Gamme</span>
+		</div>
+		<div class="flex items-center space-x-3 sm:space-x-4 py-2 sm:py-3">
+		  <div class="gold-dot"></div>
+		  <span class="text-gray-300 text-sm sm:text-base font-light">Événements Privés sur Mesure</span>
+		</div>
+      </div>
+
+      <div class="text-center mb-6 sm:mb-8 slide-up">
+        <div class="gold-divider w-12 sm:w-16 mx-auto mb-3 sm:mb-4"></div>
+        <p class="text-gray-400 text-xs sm:text-sm font-light italic">
+          "Chaque événement est une œuvre d'art unique"
+        </p>
+        <div class="gold-divider w-12 sm:w-16 mx-auto mt-3 sm:mt-4"></div>
+      </div>
+
+      <div class="flex items-center justify-center mb-6 sm:mb-8 slide-up">
+        <div class="gold-dot"></div>
+        <div class="gold-accent w-8 sm:w-10 md:w-12 mx-3 sm:mx-4"></div>
+        <div class="w-2 h-2 border border-yellow-600 rotate-45 opacity-50"></div>
+        <div class="gold-accent w-8 sm:w-10 md:w-12 mx-3 sm:mx-4"></div>
+        <div class="gold-dot"></div>
+      </div>
+
+      <div class="text-center slide-up">
+        <p class="text-gray-500 text-xs font-light letter-spacing-wide mb-2">
+          PARIS • LYON • MARSEILLE
+        </p>
+      </div>
     </div>
   </div>
+
+  <script>
+	  const cardContainer = document.getElementById('businessCard');
+	  const cardFront = cardContainer.querySelector('.card-front');
+	  const cardBack  = cardContainer.querySelector('.card-back');
+
+	  function activeFace() {
+	    return cardContainer.classList.contains('flipped') ? cardBack : cardFront;
+	  }
+	  function inactiveFace() {
+	    return cardContainer.classList.contains('flipped') ? cardFront : cardBack;
+	  }
+
+	  cardContainer.addEventListener('click', (e) => {
+		  if (e.target.closest('a, button, [data-noflip]')) return;
+
+		  const flipped = cardContainer.classList.toggle('flipped');
+		  if (flipped) {
+		    cardFront.classList.add('hidden');
+		    cardBack.classList.remove('hidden');
+		  } else {
+		    cardBack.classList.add('hidden');
+		    cardFront.classList.remove('hidden');
+		  }
+		});
+
+	  cardContainer.addEventListener('mousemove', (e) => {
+	    const rect = cardContainer.getBoundingClientRect();
+	    const centerX = rect.left + rect.width / 2;
+	    const centerY = rect.top  + rect.height / 2;
+	    const mouseX = e.clientX - centerX;
+	    const mouseY = e.clientY - centerY;
+	    const rotateX = (mouseY / rect.height) * -10;
+	    const rotateY = (mouseX / rect.width) * 10;
+
+	    const face = activeFace();
+	    face.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+
+	    inactiveFace().style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0)';
+	  });
+
+	  cardContainer.addEventListener('mouseleave', () => {
+	    activeFace().style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0)';
+	  });
+	</script>
 </body>
 </html>
