@@ -15,33 +15,20 @@
     .card-container {
       position: relative;
       width: 100%;
+	  height: 100%;
       max-width: 28rem;
+	  min-height: 75vh;
       height: auto;
       cursor: pointer;
+
+	  perspective: 1000px;
     }
-    
-    .card-face {
-      width: 100%;
-      transition: opacity 0.3s ease, transform 0.3s ease;
-    }
-    
-    /* .card-back {
-      position: absolute;
-      top: 0;
-      left: 0;
-      opacity: 0;
-      pointer-events: none;
-    }
-    
-    .card-container.flipped .card-front {
-      opacity: 0;
-      pointer-events: none;
-    }
-    
-    .card-container.flipped .card-back {
-      opacity: 1;
-      pointer-events: auto;
-    } */
+
+	.card-inner { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 0.8s; }
+	.card-face { position: absolute !important; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; transform: translateZ(0);}
+	.card-back { transform: rotateY(180deg); }
+	.card-front { transform: rotateY(0deg); }
+	.card-container.flipped .card-inner { transform: rotateY(180deg); }
         
     .elegant-glow {
       box-shadow: 0 0 40px rgba(255, 255, 255, 0.03), 0 0 80px rgba(212, 175, 55, 0.02);
@@ -236,7 +223,8 @@
 <body class="min-h-screen flex items-center justify-center p-3 sm:p-4 slide-up">
   <div class="card-container" id="businessCard">
     <!-- RECTO -->
-    <div class="card-face card-front premium-gradient subtle-border rounded-2xl p-6 sm:p-8 md:p-12 elegant-glow hover-lift fade-in relative overflow-hidden">
+	 <div class="card-inner">
+    <div class="card-face card-front premium-gradient subtle-border rounded-2xl p-6 sm:p-8 md:p-12 elegant-glow fade-in overflow-hidden">
       <div class="geometric-accent"></div>
           
       <div class="text-center mb-8 sm:mb-10 md:mb-12 relative">
@@ -255,7 +243,7 @@
       <div class="space-y-4 sm:space-y-5 md:space-y-6 mb-8 sm:mb-10 md:mb-12 slide-up">
         <div class="contact-item flex items-center justify-between py-3 sm:py-4 border-b border-gray-800/50 hover:border-gray-700/50 transition-all duration-300 relative">
           <div class="flex items-center space-x-3 sm:space-x-4">
-            <svg class="minimal-icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <svg class="minimal-icon" fill="gray" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
             </svg>
             <span class="text-gray-400 text-xs sm:text-sm font-light">Mobile</span>
@@ -267,7 +255,7 @@
               
         <div class="contact-item flex items-center justify-between py-3 sm:py-4 border-b border-gray-800/50 hover:border-gray-700/50 transition-all duration-300 relative">
           <div class="flex items-center space-x-3 sm:space-x-4">
-            <svg class="minimal-icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <svg class="minimal-icon" fill="gray" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
             </svg>
             <span class="text-gray-400 text-xs sm:text-sm font-light">Email</span>
@@ -299,7 +287,7 @@
     </div>
 
     <!-- VERSO -->
-    <div class="card-face card-back premium-gradient subtle-border rounded-2xl p-6 sm:p-8 md:p-12 elegant-glow hover-lift fade-in relative overflow-hidden hidden">
+    <div class="card-face card-back premium-gradient subtle-border rounded-2xl p-6 sm:p-8 md:p-12 elegant-glow fade-in overflow-hidden">
       <div class="geometric-accent"></div>
 
       <div class="text-center mb-8 sm:mb-10 slide-up">
@@ -349,51 +337,28 @@
         </p>
       </div>
     </div>
+	</div>
   </div>
 
   <script>
-	  const cardContainer = document.getElementById('businessCard');
-	  const cardFront = cardContainer.querySelector('.card-front');
-	  const cardBack  = cardContainer.querySelector('.card-back');
+  const cardContainer = document.getElementById('businessCard');
+  const cardInner     = cardContainer.querySelector('.card-inner');
+  const cardFront     = cardContainer.querySelector('.card-front');
 
-	  function activeFace() {
-	    return cardContainer.classList.contains('flipped') ? cardBack : cardFront;
-	  }
-	  function inactiveFace() {
-	    return cardContainer.classList.contains('flipped') ? cardFront : cardBack;
-	  }
+  function syncHeight() {
+    // fixe la hauteur du conteneur à celle du recto
+    cardContainer.style.height = cardFront.offsetHeight + 'px';
+  }
+  window.addEventListener('load', syncHeight);
+  window.addEventListener('resize', syncHeight);
 
-	  cardContainer.addEventListener('click', (e) => {
-		  if (e.target.closest('a, button, [data-noflip]')) return;
+  // Flip au clic
+  cardContainer.addEventListener('click', (e) => {
+    if (e.target.closest('a, button, [data-noflip]')) return;
+    cardContainer.classList.toggle('flipped');
+  });
+</script>
 
-		  const flipped = cardContainer.classList.toggle('flipped');
-		  if (flipped) {
-		    cardFront.classList.add('hidden');
-		    cardBack.classList.remove('hidden');
-		  } else {
-		    cardBack.classList.add('hidden');
-		    cardFront.classList.remove('hidden');
-		  }
-		});
 
-	  cardContainer.addEventListener('mousemove', (e) => {
-	    const rect = cardContainer.getBoundingClientRect();
-	    const centerX = rect.left + rect.width / 2;
-	    const centerY = rect.top  + rect.height / 2;
-	    const mouseX = e.clientX - centerX;
-	    const mouseY = e.clientY - centerY;
-	    const rotateX = (mouseY / rect.height) * -10;
-	    const rotateY = (mouseX / rect.width) * 10;
-
-	    const face = activeFace();
-	    face.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
-
-	    inactiveFace().style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0)';
-	  });
-
-	  cardContainer.addEventListener('mouseleave', () => {
-	    activeFace().style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0)';
-	  });
-	</script>
 </body>
 </html>
