@@ -6,9 +6,11 @@
   <title>Carte de visite - Captain Event</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet" />
-  <style>
+ <style>
+	html.auto-i18n-hide body{visibility:hidden}
+
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: Inter, "Noto Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       background: #0a0a0a;
     }
     
@@ -219,145 +221,242 @@
 	  }
 	}
   </style>
+<script id="i18n-data" type="application/json">
+{
+  "defaultLocale": "fr",
+  "config": {
+    "phoneHref": "tel:+33744956764",
+    "phoneDisplay": "+33 7 44 95 67 64",
+    "emailHref": "mailto:captaineventpro@gmail.com",
+    "emailDisplay": "captaineventpro@gmail.com"
+  },
+  "locales": {
+    "fr": {
+      "front": { "tagline1": "Agence d'Événementiel Haut de Gamme", "tagline2": "Créativité • Excellence • Sur-Mesure", "mmxxv": "MMXXV", "labels": { "mobile": "Mobile", "email": "Email" } },
+      "back": { "title": "NOS SERVICES", "services": ["Soirées d’Entreprise & Galas","Lancements de Produits","Mariages Haut de Gamme","Événements Privés sur Mesure"], "quote": "Chaque événement est une œuvre d'art unique", "cities": "PARIS • LYON • MARSEILLE" }
+    },
+    "en": {
+      "front": { "tagline1": "High-End Event Agency", "tagline2": "Creativity • Excellence • Tailor-Made", "mmxxv": "MMXXV", "labels": { "mobile": "Mobile", "email": "Email" } },
+      "back": { "title": "OUR SERVICES", "services": ["Corporate Evenings & Galas","Product Launches","Luxury Weddings","Tailor-Made Private Events"], "quote": "Each event is a unique work of art", "cities": "PARIS • LYON • MARSEILLE" }
+    },
+	"de": {
+	  "front": { "tagline1": "Premium Eventagentur", "tagline2": "Kreativität • Exzellenz • Maßgeschneidert", "mmxxv": "MMXXV", "labels": { "mobile": "Mobil", "email": "E-Mail" } },
+	  "back": { "title": "UNSERE DIENSTLEISTUNGEN", "services": ["Firmenabende & Galas","Produkteinführungen","Luxushochzeiten","Maßgeschneiderte Privatveranstaltungen"], "quote": "Jede Veranstaltung ist ein einzigartiges Kunstwerk", "cities": "PARIS • LYON • MARSEILLE" }
+	},
+    "es": {
+      "front": { "tagline1": "Agencia de Eventos de Alta Gama", "tagline2": "Creatividad • Excelencia • A Medida", "mmxxv": "MMXXV", "labels": { "mobile": "Móvil", "email": "Correo" } },
+      "back": { "title": "NUESTROS SERVICIOS", "services": ["Eventos Corporativos y Galas","Lanzamientos de Productos","Bodas de Lujo","Eventos Privados a Medida"], "quote": "Cada evento es una obra de arte única", "cities": "PARÍS • LYON • MARSELLA" }
+    },
+    "uk": {
+      "front": { "tagline1": "Преміум агентство з організації подій", "tagline2": "Креативність • Досконалість • Індивідуальний підхід", "mmxxv": "MMXXV", "labels": { "mobile": "Мобільний", "email": "Ел. пошта" } },
+      "back": { "title": "НАШІ ПОСЛУГИ", "services": ["Корпоративні вечори та бали","Запуски продуктів","Весілля класу люкс","Приватні події на замовлення"], "quote": "Кожна подія — це унікальний витвір мистецтва", "cities": "ПАРИЖ • ЛІОН • МАРСЕЛЬ" }
+    },
+    "ru": {
+      "front": { "tagline1": "Агентство элитных мероприятий", "tagline2": "Креатив • Безупречность • Индивидуально", "mmxxv": "MMXXV", "labels": { "mobile": "Мобильный", "email": "Эл. почта" } },
+      "back": { "title": "НАШИ УСЛУГИ", "services": ["Корпоративные вечера и балы","Запуски продуктов","Роскошные свадьбы","Частные мероприятия на заказ"], "quote": "Каждое событие — уникальное произведение искусства", "cities": "ПАРИЖ • ЛИОН • МАРСЕЛЬ" }
+    },
+    "pt": {
+      "front": { "tagline1": "Agência de Eventos de Alto Padrão", "tagline2": "Criatividade • Excelência • Sob Medida", "mmxxv": "MMXXV", "labels": { "mobile": "Telemóvel", "email": "Email" } },
+      "back": { "title": "NOSSOS SERVIÇOS", "services": ["Eventos Corporativos e Galas","Lançamentos de Produtos","Casamentos de Luxo","Eventos Privados Sob Medida"], "quote": "Cada evento é uma obra de arte única", "cities": "PARIS • LYON • MARSELHA" }
+    },
+    "it": {
+      "front": { "tagline1": "Agenzia di Eventi di Alta Gamma", "tagline2": "Creatività • Eccellenza • Su Misura", "mmxxv": "MMXXV", "labels": { "mobile": "Cellulare", "email": "Email" } },
+      "back": { "title": "I NOSTRI SERVIZI", "services": ["Serate Aziendali e Gala","Lanci di Prodotti","Matrimoni di Lusso","Eventi Privati su Misura"], "quote": "Ogni evento è un’opera d’arte unica", "cities": "PARIGI • LIONE • MARSIGLIA" }
+    },
+    "zh": {
+      "front": { "tagline1": "高端活动策划机构", "tagline2": "创意 • 卓越 • 定制", "mmxxv": "MMXXV", "labels": { "mobile": "手机", "email": "邮箱" } },
+      "back": { "title": "我们的服务", "services": ["企业晚会与盛典","产品发布会","高端婚礼","私人定制活动"], "quote": "每一场活动都是独一无二的艺术作品", "cities": "巴黎 • 里昂 • 马赛" }
+    },
+    "hi": {
+      "front": { "tagline1": "प्रीमियम इवेंट एजेंसी", "tagline2": "रचनात्मकता • उत्कृष्टता • कस्टम-निर्मित", "mmxxv": "MMXXV", "labels": { "mobile": "मोबाइल", "email": "ईमेल" } },
+      "back": { "title": "हमारी सेवाएँ", "services": ["कॉर्पोरेट संध्याएँ व गाला","उत्पाद लॉन्च","लक्ज़री शादियाँ","अनुकूलित निजी कार्यक्रम"], "quote": "हर कार्यक्रम एक अनोखी कला कृति है", "cities": "पेरिस • लियोन • मार्से" }
+    },
+    "ar": {
+      "front": { "tagline1": "وكالة فعاليات فاخرة", "tagline2": "إبداع • تميّز • تفصيل حسب الطلب", "mmxxv": "MMXXV", "labels": { "mobile": "الهاتف المحمول", "email": "البريد الإلكتروني" } },
+      "back": { "title": "خدماتنا", "services": ["أمسيات وحفلات الشركات","إطلاق المنتجات","حفلات زفاف فاخرة","فعاليات خاصة مُصممة حسب الطلب"], "quote": "كل فعالية هي عمل فني فريد", "cities": "باريس • ليون • مرسيليا" }
+    }
+  }
+}
+</script>
 </head>
 <body class="min-h-screen flex items-center justify-center p-3 sm:p-4 slide-up">
   <div class="card-container" id="businessCard">
     <!-- RECTO -->
 	 <div class="card-inner">
-    <div class="card-face card-front premium-gradient subtle-border rounded-2xl p-6 sm:p-8 md:p-12 elegant-glow fade-in overflow-hidden">
-      <div class="geometric-accent"></div>
-          
-      <div class="text-center mb-8 sm:mb-10 md:mb-12 relative">
-        <div class="flex items-center justify-center mb-4">
-          <img src="logo.png" alt="Logo Captain Event" class="h-16 sm:h-20 md:h-24 mb-8 sm:mb-10 md:mb-12 mx-auto slide-up" />
-        </div>
-      </div>
-          
-      <div class="text-center mb-8 sm:mb-10 md:mb-12 slide-up relative">
-        <div class="gold-divider w-12 sm:w-14 md:w-16 mx-auto mb-3 sm:mb-4"></div>
-        <p class="text-gray-300 font-light text-base sm:text-lg mb-2" style="margin: 0;">Agence d'Événementiel Haut de Gamme</p>
-        <p class="text-gray-500 text-xs sm:text-sm font-light" style="margin: 0;">Créativité • Excellence • Sur-Mesure</p>
-        <div class="gold-divider w-12 sm:w-14 md:w-16 mx-auto mt-3 sm:mt-4"></div>
-      </div>
-          
-      <div class="space-y-4 sm:space-y-5 md:space-y-6 mb-8 sm:mb-10 md:mb-12 slide-up">
-        <div class="contact-item flex items-center justify-between py-3 sm:py-4 border-b border-gray-800/50 hover:border-gray-700/50 transition-all duration-300 relative">
-          <div class="flex items-center space-x-3 sm:space-x-4">
-            <svg class="minimal-icon" fill="gray" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-            </svg>
-            <span class="text-gray-400 text-xs sm:text-sm font-light">Mobile</span>
+      <div class="card-face card-front premium-gradient subtle-border rounded-2xl p-6 sm:p-8 md:p-12 elegant-glow fade-in overflow-hidden">
+        <div class="geometric-accent"></div>
+
+        <div class="text-center mb-8 sm:mb-10 md:mb-12 relative">
+          <div class="flex items-center justify-center mb-4">
+            <img src="logo.png" alt="Logo Captain Event" class="h-16 sm:h-20 md:h-24 mb-8 sm:mb-10 md:mb-12 mx-auto slide-up" />
           </div>
-          <a href="tel:+33744956764" class="text-white font-light hover:text-gray-300 transition-colors text-xs sm:text-sm">
-            +33 7 44 95 67 64
-          </a>
         </div>
-              
-        <div class="contact-item flex items-center justify-between py-3 sm:py-4 border-b border-gray-800/50 hover:border-gray-700/50 transition-all duration-300 relative">
-          <div class="flex items-center space-x-3 sm:space-x-4">
-            <svg class="minimal-icon" fill="gray" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-            </svg>
-            <span class="text-gray-400 text-xs sm:text-sm font-light">Email</span>
+
+        <div class="text-center mb-8 sm:mb-10 md:mb-12 slide-up relative">
+          <div class="gold-divider w-12 sm:w-14 md:w-16 mx-auto mb-3 sm:mb-4"></div>
+          <p class="text-gray-300 font-light text-base sm:text-lg mb-2" style="margin:0" data-i18n="front.tagline1"></p>
+          <p class="text-gray-500 text-xs sm:text-sm font-light" style="margin:0" data-i18n="front.tagline2"></p>
+          <div class="gold-divider w-12 sm:w-14 md:w-16 mx-auto mt-3 sm:mt-4"></div>
+        </div>
+
+        <div class="space-y-4 sm:space-y-5 md:space-y-6 mb-8 sm:mb-10 md:mb-12 slide-up">
+          <div class="contact-item flex items-center justify-between py-3 sm:py-4 border-b border-gray-800/50 hover:border-gray-700/50 transition-all duration-300 relative">
+            <div class="flex items-center space-x-3 sm:space-x-4">
+              <svg class="minimal-icon" fill="gray" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+              <span class="text-gray-400 text-xs sm:text-sm font-light" data-i18n="front.labels.mobile"></span>
+            </div>
+            <a id="phoneLink" class="text-white font-light hover:text-gray-300 transition-colors text-xs sm:text-sm"></a>
           </div>
-          <a href="mailto:captaineventpro@gmail.com" class="text-white font-light hover:text-gray-300 transition-colors text-xs sm:text-sm">
-            captaineventpro@gmail.com
-          </a>
+
+          <div class="contact-item flex items-center justify-between py-3 sm:py-4 border-b border-gray-800/50 hover:border-gray-700/50 transition-all duration-300 relative">
+            <div class="flex items-center space-x-3 sm:space-x-4">
+              <svg class="minimal-icon" fill="gray" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              <span class="text-gray-400 text-xs sm:text-sm font-light" data-i18n="front.labels.email"></span>
+            </div>
+            <a id="emailLink" class="text-white font-light hover:text-gray-300 transition-colors text-xs sm:text-sm"></a>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-center mb-6 sm:mb-8 slide-up">
+          <div class="gold-dot"></div>
+          <div class="gold-accent w-8 sm:w-10 md:w-12 mx-3 sm:mx-4"></div>
+          <div class="w-2 h-2 border border-yellow-600 rotate-45 opacity-50"></div>
+          <div class="gold-accent w-8 sm:w-10 md:w-12 mx-3 sm:mx-4"></div>
+          <div class="gold-dot"></div>
+        </div>
+
+        <div class="text-center slide-up">
+          <div class="flex items-center justify-center mb-3 sm:mb-4">
+            <div class="gold-accent w-6 sm:w-8"></div>
+            <div class="w-1 h-1 bg-yellow-600 rounded-full mx-2 sm:mx-3 opacity-70"></div>
+            <div class="gold-accent w-6 sm:w-8"></div>
+          </div>
+          <p class="text-gray-600 text-xs font-light letter-spacing-wide" data-i18n="front.mmxxv"></p>
         </div>
       </div>
-          
-      <div class="flex items-center justify-center mb-6 sm:mb-8 slide-up">
-        <div class="gold-dot"></div>
-        <div class="gold-accent w-8 sm:w-10 md:w-12 mx-3 sm:mx-4"></div>
-        <div class="w-2 h-2 border border-yellow-600 rotate-45 opacity-50"></div>
-        <div class="gold-accent w-8 sm:w-10 md:w-12 mx-3 sm:mx-4"></div>
-        <div class="gold-dot"></div>
-      </div>
-          
-      <div class="text-center slide-up">
-        <div class="flex items-center justify-center mb-3 sm:mb-4">
-          <div class="gold-accent w-6 sm:w-8"></div>
-          <div class="w-1 h-1 bg-yellow-600 rounded-full mx-2 sm:mx-3 opacity-70"></div>
-          <div class="gold-accent w-6 sm:w-8"></div>
-        </div>
-        <p class="text-gray-600 text-xs font-light letter-spacing-wide">
-          MMXXV
-        </p>
-      </div>
-    </div>
 
     <!-- VERSO -->
     <div class="card-face card-back premium-gradient subtle-border rounded-2xl p-6 sm:p-8 md:p-12 elegant-glow fade-in overflow-hidden">
-      <div class="geometric-accent"></div>
+        <div class="geometric-accent"></div>
 
-      <div class="text-center mb-8 sm:mb-10 slide-up">
-        <div class="gold-divider w-16 sm:w-20 md:w-24 mx-auto mb-4 sm:mb-6"></div>
-        <h2 class="text-white text-lg sm:text-xl md:text-2xl font-light mb-4 sm:mb-6 letter-spacing-wide">NOS SERVICES</h2>
-        <div class="gold-divider w-16 sm:w-20 md:w-24 mx-auto"></div>
-      </div>
+        <div class="text-center mb-8 sm:mb-10 slide-up">
+          <div class="gold-divider w-16 sm:w-20 md:w-24 mx-auto mb-4 sm:mb-6"></div>
+          <h2 class="text-white text-lg sm:text-xl md:text-2xl font-light mb-4 sm:mb-6 letter-spacing-wide" data-i18n="back.title"></h2>
+          <div class="gold-divider w-16 sm:w-20 md:w-24 mx-auto"></div>
+        </div>
 
-      <div class="space-y-4 sm:space-y-5 mb-8 sm:mb-10 slide-up">
-		<div class="flex items-center space-x-3 sm:space-x-4 py-2 sm:py-3">
-		  <div class="gold-dot"></div>
-		  <span class="text-gray-300 text-sm sm:text-base font-light">Soirées d’Entreprise &amp; Galas</span>
-		</div>
-		<div class="flex items-center space-x-3 sm:space-x-4 py-2 sm:py-3">
-		  <div class="gold-dot"></div>
-		  <span class="text-gray-300 text-sm sm:text-base font-light">Lancements de Produits</span>
-		</div>
-		<div class="flex items-center space-x-3 sm:space-x-4 py-2 sm:py-3">
-		  <div class="gold-dot"></div>
-		  <span class="text-gray-300 text-sm sm:text-base font-light">Mariages Haut de Gamme</span>
-		</div>
-		<div class="flex items-center space-x-3 sm:space-x-4 py-2 sm:py-3">
-		  <div class="gold-dot"></div>
-		  <span class="text-gray-300 text-sm sm:text-base font-light">Événements Privés sur Mesure</span>
-		</div>
-      </div>
+        <!-- Liste services générée par le script -->
+        <div id="servicesList" class="space-y-4 sm:space-y-5 mb-8 sm:mb-10 slide-up"></div>
 
-      <div class="text-center mb-6 sm:mb-8 slide-up">
-        <div class="gold-divider w-12 sm:w-16 mx-auto mb-3 sm:mb-4"></div>
-        <p class="text-gray-400 text-xs sm:text-sm font-light italic">
-          "Chaque événement est une œuvre d'art unique"
-        </p>
-        <div class="gold-divider w-12 sm:w-16 mx-auto mt-3 sm:mt-4"></div>
-      </div>
+        <div class="text-center mb-6 sm:mb-8 slide-up">
+          <div class="gold-divider w-12 sm:w-16 mx-auto mb-3 sm:mb-4"></div>
+          <p class="text-gray-400 text-xs sm:text-sm font-light italic" data-i18n="back.quote"></p>
+          <div class="gold-divider w-12 sm:w-16 mx-auto mt-3 sm:mt-4"></div>
+        </div>
 
-      <div class="flex items-center justify-center mb-6 sm:mb-8 slide-up">
-        <div class="gold-dot"></div>
-        <div class="gold-accent w-8 sm:w-10 md:w-12 mx-3 sm:mx-4"></div>
-        <div class="w-2 h-2 border border-yellow-600 rotate-45 opacity-50"></div>
-        <div class="gold-accent w-8 sm:w-10 md:w-12 mx-3 sm:mx-4"></div>
-        <div class="gold-dot"></div>
-      </div>
+        <div class="flex items-center justify-center mb-6 sm:mb-8 slide-up">
+          <div class="gold-dot"></div>
+          <div class="gold-accent w-8 sm:w-10 md:w-12 mx-3 sm:mx-4"></div>
+          <div class="w-2 h-2 border border-yellow-600 rotate-45 opacity-50"></div>
+          <div class="gold-accent w-8 sm:w-10 md:w-12 mx-3 sm:mx-4"></div>
+          <div class="gold-dot"></div>
+        </div>
 
-      <div class="text-center slide-up">
-        <p class="text-gray-500 text-xs font-light letter-spacing-wide mb-2">
-          PARIS • LYON • MARSEILLE
-        </p>
+        <div class="text-center slide-up">
+          <p class="text-gray-500 text-xs font-light letter-spacing-wide mb-2" data-i18n="back.cities"></p>
+        </div>
       </div>
     </div>
-	</div>
   </div>
 
   <script>
-  const cardContainer = document.getElementById('businessCard');
-  const cardInner     = cardContainer.querySelector('.card-inner');
-  const cardFront     = cardContainer.querySelector('.card-front');
+	  const cardContainer = document.getElementById('businessCard');
+	  const cardInner     = cardContainer.querySelector('.card-inner');
+	  const cardFront     = cardContainer.querySelector('.card-front');
 
-  function syncHeight() {
-    // fixe la hauteur du conteneur à celle du recto
-    cardContainer.style.height = cardFront.offsetHeight + 'px';
-  }
-  window.addEventListener('load', syncHeight);
-  window.addEventListener('resize', syncHeight);
+	  function syncHeight() {
+	    cardContainer.style.height = cardFront.offsetHeight + 'px';
+	  }
+	  window.addEventListener('load', syncHeight);
+	  window.addEventListener('resize', syncHeight);
 
-  // Flip au clic
-  cardContainer.addEventListener('click', (e) => {
-    if (e.target.closest('a, button, [data-noflip]')) return;
-    cardContainer.classList.toggle('flipped');
-  });
+	  cardContainer.addEventListener('click', (e) => {
+	    if (e.target.closest('a, button, [data-noflip]')) return;
+	    cardContainer.classList.toggle('flipped');
+	  });
+	</script>
+
+	<script>
+	  document.documentElement.classList.add('auto-i18n-hide');
+	  const MAP = new Map([
+	    ["fr","fr"],["fr-FR","fr"],["fr-CA","fr"],
+	    ["en","en"],["en-US","en"],["en-GB","en"],
+	    ["es","es"],["es-ES","es"],["es-MX","es"],
+		["de","de"], ["de-DE","de"], ["de-AT","de"], ["de-CH","de"],
+	    ["uk","uk"],["uk-UA","uk"],
+	    ["ru","ru"],["ru-RU","ru"],
+	    ["pt","pt"],["pt-PT","pt"],["pt-BR","pt"],
+	    ["it","it"],["it-IT","it"],
+	    ["zh","zh"],["zh-CN","zh"],["zh-SG","zh"],["zh-Hans","zh"],
+	    ["hi","hi"],["hi-IN","hi"],
+	    ["ar","ar"],["ar-SA","ar"],["ar-AE","ar"],["ar-EG","ar"],
+	  ]);
+
+	  function detectLocale(defaultLocale){
+	    const list = (navigator.languages && navigator.languages.length)
+	      ? navigator.languages
+	      : [navigator.language || defaultLocale];
+	    for (const tag of list){
+	      const k = MAP.get(tag) || MAP.get(String(tag).split("-")[0]);
+	      if (k) return k;
+	    }
+	    return defaultLocale;
+	  }
+
+	  function getJSONFromScript(id){
+	    const el = document.getElementById(id);
+	    if (!el) return null;
+	    try { return JSON.parse(el.textContent); } catch { return null; }
+	  }
+
+	  (function initI18n(){
+	    const content = getJSONFromScript('i18n-data') || {};
+	    const locale  = detectLocale(content.defaultLocale || 'fr');
+	    const dict    = (content.locales && content.locales[locale]) || (content.locales && content.locales[content.defaultLocale]) || {};
+	    const cfg     = content.config || {};
+
+	    const rtl = new Set(['ar','he','fa','ur']);
+	    document.documentElement.lang = locale;
+	    document.documentElement.dir  = rtl.has(locale) ? 'rtl' : 'ltr';
+
+	    const phone = document.getElementById('phoneLink');
+	    if (phone){ phone.href = cfg.phoneHref || '#'; phone.textContent = cfg.phoneDisplay || ''; }
+	    const email = document.getElementById('emailLink');
+	    if (email){ email.href = cfg.emailHref || '#'; email.textContent = cfg.emailDisplay || ''; }
+
+	    document.querySelectorAll('[data-i18n]').forEach(el=>{
+	      const path = el.getAttribute('data-i18n').split('.');
+	      let cur = dict;
+	      for (const p of path){ cur = (cur && cur[p] != null) ? cur[p] : undefined; }
+	      if (typeof cur === 'string') el.textContent = cur;
+	    });
+
+	    const services = dict?.back?.services || [];
+	    const listEl = document.getElementById('servicesList');
+	    if (listEl){
+	      listEl.innerHTML = '';
+	      for (const text of services){
+	        const row = document.createElement('div');
+	        row.className = 'flex items-center space-x-3 sm:space-x-4 py-2 sm:py-3';
+	        row.innerHTML = '<div class="gold-dot"></div><span class="text-gray-300 text-sm sm:text-base font-light"></span>';
+	        row.querySelector('span').textContent = text;
+	        listEl.appendChild(row);
+	      }
+	    }
+	    document.documentElement.classList.remove('auto-i18n-hide');
+	  })();
 </script>
+
 
 
 </body>
